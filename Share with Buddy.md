@@ -88,19 +88,15 @@
 ```
 {
     email: string,
+    user_id:string,
+    password:string,
     name: string,
     password: string,
-    mobile: string
+    mobile: string,
     country: string
 }
 ```
-### login schema
-```
-{
-    user_id:string,
-    password:string
-}
-```
+
 ### Post Schema
 ``` 
 {
@@ -236,7 +232,7 @@ Response body ( 400 ) -
     }
 }
 ```
-### POST /posts
+### POST /post
 
 Request body-
 ```
@@ -263,7 +259,7 @@ Response body(400)-
     }
 }
 ```
-### GET /posts
+### GET /post
 
 Request body-
 ```
@@ -294,7 +290,7 @@ Response body(400)-
 }
 ```
 
-### DELETE /posts
+### DELETE /post
 
 Request body-
 ```
@@ -331,6 +327,7 @@ Request body-
 ```
 {
     user_id:string,
+    post_id:string,
     comment:string
 }
 ```
@@ -339,6 +336,7 @@ Response body(200)-
 {
     comment: {
         user_id:string,
+        post_id:string,
         photo: string,
         caption: string,
         comment:string
@@ -514,10 +512,35 @@ Response body(400)-
 {
     error: {
         // no post found with that ID
+        }
+ }
+ ```
+### POST /addfriend
+
+Request body - 
+```
+{
+    friend u_id:string,
+    name:string
+}
+```
+Response body ( 200 ) - 
+```
+{
+    friendDetails: {
+        user_id:string,
+        Bio:string
     }
 }
 ```
-
+Response body(400)-
+```
+{
+    error: {
+        // not found that id
+        }
+ }
+ ```
 
 <br>
 
